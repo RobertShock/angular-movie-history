@@ -38,11 +38,13 @@ const getRatedMovies = (userUid) => {
 
         const postNewMovie = (newMovie) => {
             return $http.post(`${FIREBASE_CONFIG.databaseURL}/movies.json`, JSON.stringify(newMovie));
-
         };
 
+        const deleteMovie = (movieId) => {
+            return $http.delete(`${FIREBASE_CONFIG.databaseURL}/movies/${movieId}.json`);
+        };
 
-    return{getRatedMovies, getWishlistMovies, postNewMovie};
+    return{deleteMovie, getRatedMovies, getWishlistMovies, postNewMovie};
 });
 
 
