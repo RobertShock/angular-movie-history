@@ -11,5 +11,14 @@
   text-overflow: ellipsis;
   height: 100px; }
 
+.movie .thumbnail {
+  position: relative; }
+  .movie .thumbnail .delete {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: red;
+    background-color: black; }
+
 body {
   background-color: lightblue; }
