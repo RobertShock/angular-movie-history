@@ -38,4 +38,17 @@ app.controller("SearchCtrl", function($location, $rootScope, $scope, MovieServic
 		});
 	};
 
+
+
+	$scope.saveWishlist = (tmdbMovie) => {
+		let newMovie = createMovie(tmdbMovie);
+		newMovie.isWatched=false;
+		MovieService.postNewMovie(newMovie).then(() => {
+			$location.path('/wishlist');
+		}).catch((err) =>{
+			console.log("error in postNewMovie", err);
+
+		});
+	};
+
 });
