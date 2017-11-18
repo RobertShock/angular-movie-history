@@ -16,9 +16,11 @@
   .movie .thumbnail .delete {
     position: absolute;
     right: 15px;
-    top: 15px;
-    color: red;
-    background-color: black; }
+    top: 15px; }
+  .movie .thumbnail .detail {
+    position: absolute;
+    left: 15px;
+    top: 15px; }
 
 body {
   background-color: lightblue; }
