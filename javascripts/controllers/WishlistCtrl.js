@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("WishlistCtrl", function($rootScope, $scope, MovieService){
+app.controller("WishlistCtrl", function($location, $rootScope, $scope, MovieService){
 	$scope.movies = [];
 
 	const getMovies = () => {
@@ -23,5 +23,21 @@ app.controller("WishlistCtrl", function($rootScope, $scope, MovieService){
 		}).catch((err) =>{
 			console.log("error in deleteMovie", err);
 		});
+	};
+
+	$scope.switchWatched = (movie) => {
+		movie.isWatched = true;
+		let updatedMovie = MovieService.createMovieObject(movie);
+		console.log("movie.id", movie.id);
+		MovieService.updateMovie(updatedMovie, movie.id).then((result) => {
+			getMovies();
+			console.log("result", result);
+		}).catch((err) => {
+			console.log("error in updateMovie", err);
+		});
+	};
+
+	$scope.movieDetail = (movieId) => {
+		$location.path(`/movie/${movieId}`);
 	};
 });
