@@ -45,6 +45,7 @@ const getRatedMovies = (userUid) => {
         };
 
         const updateMovie = (movie, movieId) => {
+            console.log("movie", movie);
             return $http.put(`${FIREBASE_CONFIG.databaseURL}/movies/${movieId}.json`, JSON.stringify(movie));
         };
 
